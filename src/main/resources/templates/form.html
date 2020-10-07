@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/form}" method="post">
+    <div>
+        <label for="username">Username</label>
+        <div>
+            <input type="text" name="username" id="username">
+        </div>
+    </div>
+
+    <div>
+        <label for="password">password</label>
+        <div>
+            <input type="password" name="password" id="password">
+        </div>
+    </div>
+    <div>
+        <label for="email">Correo</label>
+        <div>
+            <input type="text" name="email" id="email">
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <input type="submit" value="Enviar">
+        </div>
+    </div>
+
+
+</form>
+</body>
+</html>
