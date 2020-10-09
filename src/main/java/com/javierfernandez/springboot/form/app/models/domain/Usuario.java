@@ -2,7 +2,7 @@ package com.javierfernandez.springboot.form.app.models.domain;
 
 public class Usuario {
     private String username;
-    private String passsword;
+    private String password;
     private String email;
 
     public String getUsername() {
@@ -13,12 +13,12 @@ public class Usuario {
         this.username = username;
     }
 
-    public String getPasssword() {
-        return passsword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPasssword(String passsword) {
-        this.passsword = passsword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {

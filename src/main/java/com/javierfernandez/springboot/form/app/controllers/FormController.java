@@ -18,16 +18,19 @@ public class FormController {
     }
 
     @PostMapping("/form")
-    public String procesar(Model model,
-                           @RequestParam(name = "username") String username,
+    public String procesar(Usuario usuario,
+                           Model model
+                           //no hace falta ya que mapeamos desde el objeto
+                           /*@RequestParam(name = "username") String username,
                            @RequestParam String password,
-                           @RequestParam String email){
+                           @RequestParam String email*/){
         model.addAttribute("titulo", "Resultado form");
 
-        Usuario usuario = new Usuario();
+        //mejor manera de pasar por argumento el usuario
+       /* Usuario usuario = new Usuario();
         usuario.setUsername(username);
         usuario.setEmail(email);
-        usuario.setPasssword(password);
+        usuario.setPasssword(password);*/
         model.addAttribute("usuario", usuario);
 
     //ya no hace falta lo traemos desde la clase uusuario
