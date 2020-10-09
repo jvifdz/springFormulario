@@ -21,14 +21,14 @@ public class FormController {
 
         Usuario usuario = new Usuario();
         model.addAttribute("titulo", "Formulario usuarios");
-        /*seria usuario pero he puesto en el model attribute user para cambiar*/
-        model.addAttribute("user" , usuario);
+        /*seria usuario (quitado user vuelto usuario pero he puesto en el model attribute user para cambiar*/
+        model.addAttribute("usuario" , usuario);
         return "form";
     }
 
     @PostMapping("/form")
     /*para poner nombre distinto en la vista moddel attribute*/
-    public String procesar(@Valid @ModelAttribute("user") Usuario usuario, BindingResult result, Model model
+    public String procesar(@Valid /*@ModelAttribute("user")*/ Usuario usuario, BindingResult result, Model model
 
                            //no hace falta ya que mapeamos desde el objeto
                            /*@RequestParam(name = "username") String username,
