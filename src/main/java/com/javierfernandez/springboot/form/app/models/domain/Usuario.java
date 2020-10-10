@@ -1,6 +1,8 @@
 package com.javierfernandez.springboot.form.app.models.domain;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 public class Usuario {
 
@@ -8,19 +10,21 @@ public class Usuario {
 
     private String identificador;
 
-    @NotEmpty
+    @NotEmpty(message = "el nombre no puede estar vacio")
     private String nombre;
 
     @NotEmpty
     private String apellido;
 
     @NotEmpty
+    @Size(min = 3, max = 8)
     private String username;
 
     @NotEmpty
     private String password;
 
     @NotEmpty
+    @Email(message = "correo con formato incorrecto")
     private String email;
 
     public String getUsername() {
