@@ -10,7 +10,7 @@ public class Usuario {
 
     private String identificador;
 
-    @NotEmpty(message = "el nombre no puede estar vacio")
+    @NotEmpty(message = "el nombre no puede estar vacio")//sobrescrbe el del properties
     private String nombre;
 
     @NotEmpty
