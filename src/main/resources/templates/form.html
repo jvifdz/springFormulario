@@ -6,28 +6,28 @@
 </head>
 <body>
 <h3 th:text="${titulo}"></h3>
-<form th:action="@{/form}" method="post">
+<form th:action="@{/form}" th:object="${usuario}" method="post">
     <div>
         <label for="username">Username</label>
         <div>
-            <input type="text" name="username" id="username" th:value="${usuario.username}">
+            <input type="text" id="username" th:field="*{username}">
         </div>
-        <div th:if="${error != null && error.containsKey('username')}" th:text="${error.username}"></div>
+        <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
     </div>
 
     <div>
         <label for="password">Password</label>
         <div>
-            <input type="password" name="password" id="password">
+            <input type="password" th:field="*{password}" id="password">
         </div>
-        <div th:if="${error != null && error.containsKey('password')}" th:text="${error.password}"></div>
+        <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
     </div>
     <div>
         <label for="email">Correo</label>
         <div>
-            <input type="text" name="email" id="email" th:value="${usuario.email}">
+            <input type="text" id="email" th:field="*{email}">
         </div>
-        <div th:if="${error != null && error.containsKey('email')}" th:text="${error.email}"></div>
+        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
 
     </div>
 
