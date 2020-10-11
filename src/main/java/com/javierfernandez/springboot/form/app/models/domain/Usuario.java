@@ -2,12 +2,14 @@ package com.javierfernandez.springboot.form.app.models.domain;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class Usuario {
 
-
-
+    //Validacion de la forma que tiene que tener el identificador
+    //[0-9] es lo mismo que [\d]
+    @Pattern(regexp = "[0-9]{2}[.][\\d]{3}[.][\\d]{3}[-][A-Z]{1}")
     private String identificador;
 
     @NotEmpty(message = "el nombre no puede estar vacio")//sobrescrbe el del properties
