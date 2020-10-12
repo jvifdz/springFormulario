@@ -9,10 +9,11 @@ public class Usuario {
 
     //Validacion de la forma que tiene que tener el identificador
     //[0-9] es lo mismo que [\d]
-    @Pattern(regexp = "[0-9]{2}[.][\\d]{3}[.][\\d]{3}[-][A-Z]{1}")
+    //comento este y nombre por que voy a hacer una personalizada
+    //@Pattern(regexp = "[0-9]{2}[.][\\d]{3}[.][\\d]{3}[-][A-Z]{1}")
     private String identificador;
 
-    @NotEmpty(message = "el nombre no puede estar vacio")//sobrescrbe el del properties
+    //@NotEmpty(message = "el nombre no puede estar vacio")//sobrescrbe el del properties
     private String nombre;
 
     @NotEmpty

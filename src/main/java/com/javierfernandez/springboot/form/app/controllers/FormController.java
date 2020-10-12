@@ -1,6 +1,8 @@
 package com.javierfernandez.springboot.form.app.controllers;
 
 import com.javierfernandez.springboot.form.app.models.domain.Usuario;
+import com.javierfernandez.springboot.form.app.validation.UsuarioValidador;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,6 +16,9 @@ import java.util.Map;
 @Controller
 @SessionAttributes("usuario")
 public class FormController {
+
+    @Autowired
+    private UsuarioValidador validador;
 
     @GetMapping("/form")
     public String form(Model model) {
@@ -36,6 +41,8 @@ public class FormController {
                            /*@RequestParam(name = "username") String username,
                            @RequestParam String password,
                            @RequestParam String email*/) {
+
+        validador.validate(usuario,result);
 
         model.addAttribute("titulo", "Resultado form");
 
