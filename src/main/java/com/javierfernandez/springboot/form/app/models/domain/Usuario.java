@@ -40,6 +40,7 @@ public class Usuario {
     private Integer cuenta;
 
     @NotNull
+    @Future
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechaNacimiento;
 
