@@ -1,5 +1,7 @@
 package com.javierfernandez.springboot.form.app.models.domain;
 
+import com.javierfernandez.springboot.form.app.validation.IdentificadorRegex;
+
 import javax.validation.constraints.*;
 
 public class Usuario {
@@ -8,6 +10,7 @@ public class Usuario {
     //[0-9] es lo mismo que [\d]
     //comento este y nombre por que voy a hacer una personalizada
     //@Pattern(regexp = "[0-9]{2}[.][\\d]{3}[.][\\d]{3}[-][A-Z]{1}")
+    @IdentificadorRegex
     private String identificador;
 
     //@NotEmpty(message = "el nombre no puede estar vacio")//sobrescrbe el del properties
