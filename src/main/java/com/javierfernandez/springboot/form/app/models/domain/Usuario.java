@@ -1,6 +1,7 @@
 package com.javierfernandez.springboot.form.app.models.domain;
 
 import com.javierfernandez.springboot.form.app.validation.IdentificadorRegex;
+import com.javierfernandez.springboot.form.app.validation.Requerido;
 
 import javax.validation.constraints.*;
 
@@ -16,7 +17,8 @@ public class Usuario {
     //@NotEmpty(message = "el nombre no puede estar vacio")//sobrescrbe el del properties
     private String nombre;
 
-    @NotEmpty
+    //@NotEmpty
+    @Requerido
     private String apellido;
 
     @NotBlank
@@ -26,7 +28,7 @@ public class Usuario {
     @NotEmpty
     private String password;
 
-    @NotEmpty
+    @Requerido
     @Email(message = "correo con formato incorrecto")
     private String email;
 
