@@ -2,8 +2,10 @@ package com.javierfernandez.springboot.form.app.models.domain;
 
 import com.javierfernandez.springboot.form.app.validation.IdentificadorRegex;
 import com.javierfernandez.springboot.form.app.validation.Requerido;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.*;
+import java.util.Date;
 
 public class Usuario {
 
@@ -37,6 +39,9 @@ public class Usuario {
     @Max(5000)
     private Integer cuenta;
 
+    @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date fechaNacimiento;
 
     public String getUsername() {
         return username;
@@ -92,5 +97,13 @@ public class Usuario {
 
     public void setCuenta(Integer cuenta) {
         this.cuenta = cuenta;
+    }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 }
