@@ -32,6 +32,12 @@ public class Usuario {
     @Email(message = "correo con formato incorrecto")
     private String email;
 
+    @NotNull
+    @Min(5)
+    @Max(5000)
+    private Integer cuenta;
+
+
     public String getUsername() {
         return username;
     }
@@ -78,5 +84,13 @@ public class Usuario {
 
     public void setIdentificador(String identificador) {
         this.identificador = identificador;
+    }
+
+    public Integer getCuenta() {
+        return cuenta;
+    }
+
+    public void setCuenta(Integer cuenta) {
+        this.cuenta = cuenta;
     }
 }
