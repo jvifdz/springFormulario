@@ -14,9 +14,7 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import javax.validation.Valid;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 @SessionAttributes("usuario")
@@ -35,6 +33,11 @@ public class FormController {
         binder.registerCustomEditor(String.class,"apellido" , new NombreMayusculaEditor());
     }
 
+    @ModelAttribute("paises")
+    public List<String>paises(){
+        return Arrays.asList("España","Mexico","Chile","Perú","Colombia","Venezuela");
+    }
+
     @GetMapping("/form")
     public String form(Model model) {
 
@@ -45,6 +48,8 @@ public class FormController {
         model.addAttribute("titulo", "Formulario usuarios");
         /*seria usuario (quitado user vuelto usuario pero he puesto en el model attribute user para cambiar*/
         model.addAttribute("usuario" , usuario);
+
+
         return "form";
     }
 
