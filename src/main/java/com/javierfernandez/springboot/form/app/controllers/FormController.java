@@ -22,20 +22,36 @@ public class FormController {
 
     @Autowired
     private UsuarioValidador validador;
+
     @InitBinder
-    public void initBinder(WebDataBinder binder){
+    public void initBinder(WebDataBinder binder) {
         binder.addValidators(validador);
 
-        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         dateFormat.setLenient(false);
-        binder.registerCustomEditor(Date.class,"fechaNacimiento" ,new CustomDateEditor(dateFormat, true));
-        binder.registerCustomEditor(String.class,"nombre" , new NombreMayusculaEditor());
-        binder.registerCustomEditor(String.class,"apellido" , new NombreMayusculaEditor());
+        binder.registerCustomEditor(Date.class, "fechaNacimiento", new CustomDateEditor(dateFormat, true));
+        binder.registerCustomEditor(String.class, "nombre", new NombreMayusculaEditor());
+        binder.registerCustomEditor(String.class, "apellido", new NombreMayusculaEditor());
     }
 
     @ModelAttribute("paises")
-    public List<String>paises(){
-        return Arrays.asList("España","Mexico","Chile","Perú","Colombia","Venezuela");
+    public List<String> paises() {
+        return Arrays.asList("España", "Mexico", "Chile", "Perú", "Colombia", "Venezuela");
+    }
+
+    @ModelAttribute("paisesMap")
+    public Map<String, String> paisesMap() {
+        Map<String, String> paises = new HashMap<String, String>();
+        //en el put primero key luego value
+        paises.put("ES", "España");
+        paises.put("MX", "Mexico");
+        paises.put("ES", "España");
+        paises.put("CL", "Chile");
+        paises.put("AR", "Argentina");
+        paises.put("PE", "Perú");
+        paises.put("CO", "Colombia");
+        paises.put("VE", "Venezuela");
+        return paises;
     }
 
     @GetMapping("/form")
@@ -47,7 +63,7 @@ public class FormController {
         usuario.setIdentificador("123.456.789-K");
         model.addAttribute("titulo", "Formulario usuarios");
         /*seria usuario (quitado user vuelto usuario pero he puesto en el model attribute user para cambiar*/
-        model.addAttribute("usuario" , usuario);
+        model.addAttribute("usuario", usuario);
 
 
         return "form";
@@ -75,7 +91,6 @@ public class FormController {
             });
 
             model.addAttribute("error", errores);*/
-
 
 
             return "form";
