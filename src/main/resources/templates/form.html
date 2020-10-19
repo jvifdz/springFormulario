@@ -10,15 +10,16 @@
 
 
     <div>
-        <label for="pais">Pais</label>
+        <label for="pais.codigo">Pais</label>
         <div>
-            <select id="pais" th:field="*{pais}">
-            <option value="">-- Seleccionar --</option>
+            <select id="pais.codigo" th:field="*{pais.codigo}">
+                <option value="">-- Seleccionar --</option>
                 <!-- el entry set lo que hace es que se pueda usar el hasmap en el foreach de html -->
-            <option th:each="pais: ${paisesMap.entrySet()}" th:text="${pais.value}" th:value="${pais.key}"></option>
+                <!--<option th:each="pais: ${paisesMap.entrySet()}" th:text="${pais.value}" th:value="${pais.key}"></option>-->
+                <option th:each="pais: ${listaPaises}" th:text="${pais.nombre}" th:value="${pais.codigo}"></option>
             </select>
         </div>
-        <div th:if="${#fields.hasErrors('pais')}" th:errors="*{pais}"></div>
+        <div th:if="${#fields.hasErrors('pais.codigo')}" th:errors="*{pais.codigo}"></div>
     </div>
 
     <div>

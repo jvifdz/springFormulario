@@ -1,6 +1,7 @@
 package com.javierfernandez.springboot.form.app.controllers;
 
 import com.javierfernandez.springboot.form.app.editors.NombreMayusculaEditor;
+import com.javierfernandez.springboot.form.app.models.domain.Pais;
 import com.javierfernandez.springboot.form.app.models.domain.Usuario;
 import com.javierfernandez.springboot.form.app.validation.UsuarioValidador;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,18 @@ public class FormController {
         binder.registerCustomEditor(String.class, "apellido", new NombreMayusculaEditor());
     }
 
+    @ModelAttribute("listaPaises")
+    public List<Pais> listaPaises() {
+        return Arrays.asList(
+                new Pais(1, "ES","España"),
+                new Pais(2, "MX","Mexico"),
+                new Pais(3, "CL","Chile"),
+                new Pais(4, "AR","Argentina"),
+                new Pais(5, "PE", "Perú"),
+                new Pais(6, "CO", "Colombia"),
+                new Pais(7, "VE", "Venezuela"));
+    }
+
     @ModelAttribute("paises")
     public List<String> paises() {
         return Arrays.asList("España", "Mexico", "Chile", "Perú", "Colombia", "Venezuela");
@@ -45,7 +58,6 @@ public class FormController {
         //en el put primero key luego value
         paises.put("ES", "España");
         paises.put("MX", "Mexico");
-        paises.put("ES", "España");
         paises.put("CL", "Chile");
         paises.put("AR", "Argentina");
         paises.put("PE", "Perú");

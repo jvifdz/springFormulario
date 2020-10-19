@@ -4,6 +4,7 @@ import com.javierfernandez.springboot.form.app.validation.IdentificadorRegex;
 import com.javierfernandez.springboot.form.app.validation.Requerido;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.Date;
 
@@ -44,8 +45,10 @@ public class Usuario {
     //@DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechaNacimiento;
 
-    @NotEmpty
-    private String pais;
+
+    //necesitamos esta anotacion para que valide todos lo de la clase valid
+    @Valid
+    private Pais pais;
 
     public String getUsername() {
         return username;
@@ -111,11 +114,11 @@ public class Usuario {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public String getPais() {
+    public Pais getPais() {
         return pais;
     }
 
-    public void setPais(String pais) {
+    public void setPais(Pais pais) {
         this.pais = pais;
     }
 }
