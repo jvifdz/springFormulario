@@ -3,6 +3,7 @@ package com.javierfernandez.springboot.form.app.controllers;
 import com.javierfernandez.springboot.form.app.editors.NombreMayusculaEditor;
 import com.javierfernandez.springboot.form.app.models.domain.Pais;
 import com.javierfernandez.springboot.form.app.models.domain.Usuario;
+import com.javierfernandez.springboot.form.app.services.PaisService;
 import com.javierfernandez.springboot.form.app.validation.UsuarioValidador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -24,6 +25,10 @@ public class FormController {
     @Autowired
     private UsuarioValidador validador;
 
+
+    @Autowired
+    private PaisService paisService;
+
     @InitBinder
     public void initBinder(WebDataBinder binder) {
         binder.addValidators(validador);
@@ -37,16 +42,20 @@ public class FormController {
 
     @ModelAttribute("listaPaises")
     public List<Pais> listaPaises() {
-        return Arrays.asList(
+        //comento ya que ahora lo hago desde el servicio PAisService
+        /*return Arrays.asList(
                 new Pais(1, "ES","España"),
                 new Pais(2, "MX","Mexico"),
                 new Pais(3, "CL","Chile"),
                 new Pais(4, "AR","Argentina"),
                 new Pais(5, "PE", "Perú"),
                 new Pais(6, "CO", "Colombia"),
-                new Pais(7, "VE", "Venezuela"));
+                new Pais(7, "VE", "Venezuela"));*/
+        return paisService.listar();
     }
 
+
+    //ya no estoy usando este model attribute ya que use despues el hasmap y despues la clase pais
     @ModelAttribute("paises")
     public List<String> paises() {
         return Arrays.asList("España", "Mexico", "Chile", "Perú", "Colombia", "Venezuela");
