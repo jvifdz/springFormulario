@@ -61,6 +61,16 @@ public class FormController {
         return paisService.listar();
     }
 
+    @ModelAttribute("listaRolesString")
+    public List<String> listaRolesString(){
+        List<String> roles = new ArrayList<>();
+        roles.add("ROLE_ADMIN");
+        roles.add("ROLE_USER");
+        roles.add("ROLE_MODERATOR");
+        return roles;
+
+    }
+
 
     //ya no estoy usando este model attribute ya que use despues el hasmap y despues la clase pais
     @ModelAttribute("paises")

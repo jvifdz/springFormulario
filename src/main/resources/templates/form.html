@@ -23,6 +23,16 @@
     </div>
 
     <div>
+        <label>Roles</label>
+        <div th:each="role: ${listaRolesString}">
+            <input type="checkbox" th:field="*{roles}" th:value="${role}">
+            <!--  el thfor para pinchar en el label y lo seleccione pero hay que darle el id del que estamos seleccionando asi qye usamos el helper ids prevs -->
+            <label th:for="${#ids.prev('roles')}" th:text="${role}"></label>
+        </div>
+        <div th:if="${#fields.hasErrors('roles')}" th:errors="*{roles}"></div>
+    </div>
+
+    <div>
         <label for="identificador">Identificador</label>
         <div>
             <input type="text" id="identificador" th:field="*{identificador}">

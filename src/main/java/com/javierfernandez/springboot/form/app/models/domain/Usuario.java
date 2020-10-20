@@ -7,6 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.Date;
+import java.util.List;
 
 public class Usuario {
 
@@ -45,12 +46,15 @@ public class Usuario {
     //@DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechaNacimiento;
 
-
     //necesitamos esta anotacion para que valide todos lo de la clase valid
     //@Valid
     //ya que validamos completamente el objeto
     @NotNull
     private Pais pais;
+
+    @NotEmpty
+    private List<String>roles;
+
 
     public String getUsername() {
         return username;
@@ -122,5 +126,13 @@ public class Usuario {
 
     public void setPais(Pais pais) {
         this.pais = pais;
+    }
+
+    public List<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
     }
 }
