@@ -71,6 +71,16 @@ public class FormController {
 
     }
 
+    @ModelAttribute("listaRolesMap")
+    public Map<String, String> listaRolesMap() {
+        Map<String, String> roles = new HashMap<String, String>();
+        //en el put primero key luego value
+        roles.put("ROLE_ADMIN", "Administrador");
+        roles.put("ROLE_USER", "Usuario");
+        roles.put("ROLE_MODERATOR", "Moderador");
+        return roles;
+    }
+
 
     //ya no estoy usando este model attribute ya que use despues el hasmap y despues la clase pais
     @ModelAttribute("paises")
