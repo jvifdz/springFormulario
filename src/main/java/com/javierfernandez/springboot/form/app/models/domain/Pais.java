@@ -6,8 +6,8 @@ import javax.validation.constraints.NotNull;
 public class Pais {
 
     private Integer id;
-
-    @NotEmpty
+    //No es necesario ya que valido el objeto completo
+    //@NotEmpty
     private String codigo;
 
     private String nombre;

@@ -47,7 +47,9 @@ public class Usuario {
 
 
     //necesitamos esta anotacion para que valide todos lo de la clase valid
-    @Valid
+    //@Valid
+    //ya que validamos completamente el objeto
+    @NotNull
     private Pais pais;
 
     public String getUsername() {
