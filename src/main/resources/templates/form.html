@@ -34,9 +34,9 @@
     -->
     <div>
         <label>Roles</label>
-        <div th:each="role: ${listaRolesMap.entrySet()}">
-            <input type="checkbox" th:field="*{roles}" th:value="${role.key}">
-            <label th:for="${#ids.prev('roles')}" th:text="${role.value}"></label>
+        <div th:each="role: ${listaRoles}">
+            <input type="checkbox" th:field="*{roles}" th:value="${role.id}">
+            <label th:for="${#ids.prev('roles')}" th:text="${role.nombre}"></label>
         </div>
         <div th:if="${#fields.hasErrors('roles')}" th:errors="*{roles}"></div>
     </div>
