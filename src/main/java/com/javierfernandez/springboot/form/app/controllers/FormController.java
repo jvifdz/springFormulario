@@ -57,6 +57,11 @@ public class FormController {
 
     }
 
+    @ModelAttribute("genero")
+    public List<String>genero(){
+        return Arrays.asList("Hombre","Mujer");
+    }
+
     @ModelAttribute("listaPaises")
     public List<Pais> listaPaises() {
         //comento ya que ahora lo hago desde el servicio PAisService

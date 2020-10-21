@@ -20,6 +20,7 @@
     <li th:text="${usuario.pais.nombre}"></li>
     <li th:text="${#calendars.format(usuario.fechaNacimiento,'dd-MM-yyyy')}"></li>
     <li th:text="'Habilitado: '+${usuario.habilitar}"></li>
+    <li th:text="'Genero: '+${usuario.genero}"></li>
 </ul>
 <div>Roles</div>
 <ul>
