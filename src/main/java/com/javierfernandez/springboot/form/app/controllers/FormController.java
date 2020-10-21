@@ -133,6 +133,8 @@ public class FormController {
         usuario.setApellido("doe");
         usuario.setIdentificador("123.456.789-K");
         usuario.setHabilitar(true);
+        usuario.setValorSecreto("Algún valor secreto ****");
+
         model.addAttribute("titulo", "Formulario usuarios");
         /*seria usuario (quitado user vuelto usuario pero he puesto en el model attribute user para cambiar*/
         model.addAttribute("usuario", usuario);
