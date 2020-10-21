@@ -8,6 +8,13 @@
 <h3 th:text="${titulo}"></h3>
 <form th:action="@{/form}" th:object="${usuario}" method="post">
 
+    <div>
+        <label for="habilitar">Habilitar</label>
+        <div>
+            <input type="checkbox" id="habilitar" th:field="*{habilitar}">
+        </div>
+    </div>
+
 
     <div>
         <label for="pais">Pais</label>
