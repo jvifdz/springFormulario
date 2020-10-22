@@ -44,4 +44,12 @@ public class Pais {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    //Este to string es necesario para poder poner por defecto un pais. en el formulario esta la id en el
+    //select y al ser un int debemos pasarlo a un string
+
+    @Override
+    public String toString() {
+        return this.id.toString();
+    }
 }

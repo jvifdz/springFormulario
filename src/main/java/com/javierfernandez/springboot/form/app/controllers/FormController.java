@@ -134,6 +134,10 @@ public class FormController {
         usuario.setIdentificador("123.456.789-K");
         usuario.setHabilitar(true);
         usuario.setValorSecreto("Algún valor secreto ****");
+        //al pasar un objeto pais por defecto tenemos que crear el metodo toString de la id para que este lo reconozxca en el formulario
+        usuario.setPais(new Pais(1, "ES","España"));
+        usuario.setRoles(Arrays.asList(new Role(2, "Usuario", "ROLE_USER")));
+
 
         model.addAttribute("titulo", "Formulario usuarios");
         /*seria usuario (quitado user vuelto usuario pero he puesto en el model attribute user para cambiar*/
