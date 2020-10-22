@@ -149,7 +149,7 @@ public class FormController {
 
     @PostMapping("/form")
     /*para poner nombre distinto en la vista moddel attribute*/
-    public String procesar(@Valid /*@ModelAttribute("user")*/ Usuario usuario, BindingResult result, Model model, SessionStatus status
+    public String procesar(@Valid /*@ModelAttribute("user")*/ Usuario usuario, BindingResult result, Model model
 
                            //no hace falta ya que mapeamos desde el objeto
                            /*@RequestParam(name = "username") String username,
@@ -159,9 +159,10 @@ public class FormController {
         // Voy a validar automaticamente con la anotacion valid el metodo initBinder
         // validador.validate(usuario,result);
 
-        model.addAttribute("titulo", "Resultado form");
+
 
         if (result.hasErrors()) {
+            model.addAttribute("titulo", "Resultado form");
             //Error de forma manual
            /* Map<String, String> errores = new HashMap<>();
             result.getFieldErrors().forEach(err -> {
@@ -180,12 +181,24 @@ public class FormController {
         usuario.setUsername(username);
         usuario.setEmail(email);
         usuario.setPasssword(password);*/
-        model.addAttribute("usuario", usuario);
+        //ya no por que lo uso en el get /ver
+        //model.addAttribute("usuario", usuario);
 
         //ya no hace falta lo traemos desde la clase usuario
         /*model.addAttribute("username", username);
         model.addAttribute("password", password);
         model.addAttribute("email", email);*/
+
+
+        return "redirect:/ver";
+    }
+    @GetMapping("/ver")
+    public String ver(@SessionAttribute(name="usuario",required = false) Usuario usuario,Model model, SessionStatus status){
+        model.addAttribute("titulo", "Resultado form");
+
+        if (usuario==null){
+            return "redirect:/form";
+        }
 
         status.setComplete();
         return "resultado";
