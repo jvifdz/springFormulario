@@ -181,6 +181,7 @@ public class FormController {
         usuario.setUsername(username);
         usuario.setEmail(email);
         usuario.setPasssword(password);*/
+
         //ya no por que lo uso en el get /ver
         //model.addAttribute("usuario", usuario);
 
