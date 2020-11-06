@@ -6,9 +6,9 @@
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 </head>
 <body>
-<div class="alert alert-success">
-    <span th:text="'Tiempo transcurrido: '+${tiempoTranscurrido}+' en milisegundos'"></span>
-</div>
+
+<section th:replace="componentes/tiempo :: interceptor"></section>
+
 <h3 th:text="${titulo}"></h3>
 <div class="container">
     <form th:action="@{/form}" th:object="${usuario}" method="post">

@@ -17,6 +17,7 @@ public class MvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(tiempoTranscurridoInterceptor);
+        //el addPather hace que solo se vea en form y lo que venga
+        registry.addInterceptor(tiempoTranscurridoInterceptor).addPathPatterns("/form/**");
     }
 }

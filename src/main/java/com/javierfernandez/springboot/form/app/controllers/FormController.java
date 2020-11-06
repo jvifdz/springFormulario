@@ -131,7 +131,7 @@ public class FormController {
         Usuario usuario = new Usuario();
         usuario.setNombre("john");
         usuario.setApellido("doe");
-        usuario.setIdentificador("123.456.789-K");
+        usuario.setIdentificador("12.456.789-K");
         usuario.setHabilitar(true);
         usuario.setValorSecreto("Algún valor secreto ****");
         //al pasar un objeto pais por defecto tenemos que crear el metodo toString de la id para que este lo reconozxca en el formulario

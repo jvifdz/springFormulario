@@ -19,6 +19,12 @@ public class TiempoTranscurridoInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
+
+        //esto hace que no lo haga en el post que lo omita, se sale del interceptor para diferenciar el form del get o post
+        if (request.getMethod().equalsIgnoreCase("post")){
+            return true;
+        }
+
         if (handler instanceof HandlerMethod){
             HandlerMethod metodo =(HandlerMethod) handler;
             logger.info("es un método del controlador:  "+metodo.getMethod().getName());
@@ -33,7 +39,7 @@ public class TiempoTranscurridoInterceptor implements HandlerInterceptor {
         //Simulacion de lo que tardaria en cargae
 
         Random random = new Random();
-        Integer demora = random.nextInt(500);
+        Integer demora = random.nextInt(100);
         Thread.sleep(demora);
 
         return true;
