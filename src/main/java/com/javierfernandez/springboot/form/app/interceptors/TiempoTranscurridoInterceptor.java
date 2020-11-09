@@ -48,6 +48,10 @@ public class TiempoTranscurridoInterceptor implements HandlerInterceptor {
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
 
+        //Cuando esto ocurre retornamos sin seguir ejecutando
+        if (request.getMethod().equalsIgnoreCase("post")){
+            return;
+        }
 
 
         long tiempoFin = System.currentTimeMillis();
